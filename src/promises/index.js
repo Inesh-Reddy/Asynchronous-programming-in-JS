@@ -1,14 +1,26 @@
-function promisifiedSetTimeout() {
-  const p = new Promise((resolve, reject) => {
+// function promisifiedSetTimeout() {
+//   const p = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       resolve("resolved");
+//     }, 3000);
+//   });
+//   return p;
+// }
+
+// promisifiedSetTimeout().then((res) => {
+//   console.log(res);
+// });
+
+function timeoutPromise(delay) {
+  return new Promise((resolve) => {
     setTimeout(() => {
-      resolve("resolved");
-    }, 3000);
+      resolve("Done");
+    }, delay);
   });
-  return p;
 }
 
-promisifiedSetTimeout().then((res) => {
-  console.log(res);
+timeoutPromise(1000).then((result) => {
+  console.log(result);
 });
 /*
 **Understanding Promises Under the Hood**
